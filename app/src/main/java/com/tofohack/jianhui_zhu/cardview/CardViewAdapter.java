@@ -22,6 +22,10 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
     private List<Tree> trees;
     private Context context;
 
+    /**
+     * Private constructor, force user use builder to construct adapter object
+     * @param cardViewAdapterBuilder
+     */
     private CardViewAdapter(CardViewAdapterBuilder cardViewAdapterBuilder) {
         trees = cardViewAdapterBuilder.trees;
         context = cardViewAdapterBuilder.context;
@@ -94,12 +98,19 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
         return trees == null ? 0 : trees.size();
     }
 
+    /**
+     * ViewHolder, like normal adapter in list view and spinner view
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.image_for_card)
         ImageView imageForCard;
         @Bind(R.id.card_name)
         TextView cardName;
 
+        /**
+         * viewholder constructor
+         * @param itemView
+         */
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -107,10 +118,18 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.ViewHo
         }
     }
 
+    /**
+     * Builder, please reference Effective Java builder pattern
+     */
     public static class CardViewAdapterBuilder {
         private Context context;
         private List<Tree> trees;
 
+        /**
+         * Setters
+         * @param context
+         * @return
+         */
         public CardViewAdapterBuilder setContext(Context context) {
             this.context = context;
             return this;

@@ -7,11 +7,19 @@ public class Tree {
     private String name;
     private int imagePath;
 
+    /**
+     * Private constructor, force user use builder to construct the tree object
+     * @param treeBuilder
+     */
     private Tree(TreeBuilder treeBuilder) {
         setName(treeBuilder.name);
         setImagePath(treeBuilder.imagePath);
     }
 
+    /**
+     * Getters and setters
+     * @return
+     */
     public String getName() {
         return name;
     }
@@ -36,6 +44,11 @@ public class Tree {
                 '}';
     }
 
+    /**
+     * Builder for tree object
+     *
+     * Please check Effective Java Builder pattern
+     */
     public static class TreeBuilder {
         private String name;
         private int imagePath;
@@ -43,6 +56,11 @@ public class Tree {
         public TreeBuilder() {
         }
 
+        /**
+         * Setters
+         * @param name
+         * @return
+         */
         public TreeBuilder setName(String name) {
             this.name = name;
             return this;

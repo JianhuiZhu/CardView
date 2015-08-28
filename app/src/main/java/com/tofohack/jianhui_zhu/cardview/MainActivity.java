@@ -24,6 +24,10 @@ public class MainActivity extends Activity {
         trees.add(new Tree.TreeBuilder().setName("Tree 1").setImagePath(R.drawable.tree1).build());
         trees.add(new Tree.TreeBuilder().setName("Tree 2").setImagePath(R.drawable.tree2).build());
         trees.add(new Tree.TreeBuilder().setName("Tree 3").setImagePath(R.drawable.tree3).build());
+        trees.add(new Tree.TreeBuilder().setName("Tree 4").setImagePath(R.drawable.tree4).build());
+        trees.add(new Tree.TreeBuilder().setName("Tree 5").setImagePath(R.drawable.tree5).build());
+        trees.add(new Tree.TreeBuilder().setName("Tree 6").setImagePath(R.drawable.tree6).build());
+        trees.add(new Tree.TreeBuilder().setName("Tree 7").setImagePath(R.drawable.tree7).build());
         return trees;
     }
     @Override
