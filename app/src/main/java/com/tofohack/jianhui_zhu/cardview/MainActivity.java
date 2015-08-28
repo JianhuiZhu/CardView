@@ -1,17 +1,48 @@
 package com.tofohack.jianhui_zhu.cardview;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+public class MainActivity extends Activity {
+    @Bind(R.id.list)
+    RecyclerView list;
+    private List<Tree> trees=initTree();
+    private List<Tree> initTree(){
+        List<Tree> trees=new ArrayList<>();
+        trees.add(new Tree.TreeBuilder().setName("Tree 1").setImagePath(R.drawable.tree1).build());
+        trees.add(new Tree.TreeBuilder().setName("Tree 2").setImagePath(R.drawable.tree2).build());
+        trees.add(new Tree.TreeBuilder().setName("Tree 3").setImagePath(R.drawable.tree3).build());
+        return trees;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+        // 设置LinearLayoutManager
+        list.setLayoutManager(new LinearLayoutManager(this));
+        // 设置ItemAnimator
+        list.setItemAnimator(new DefaultItemAnimator());
+        // 设置固定大小
+        list.setHasFixedSize(true);
+        // 初始化自定义的适配器
+        // 为mRecyclerView设置适配器
+        list.setAdapter(new CardViewAdapter.CardViewAdapterBuilder().setContext(MainActivity.this).setTrees(trees).build());
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,4 +65,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
