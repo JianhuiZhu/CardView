@@ -31,14 +31,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        // 设置LinearLayoutManager
         list.setLayoutManager(new LinearLayoutManager(this));
-        // 设置ItemAnimator
         list.setItemAnimator(new DefaultItemAnimator());
-        // 设置固定大小
         list.setHasFixedSize(true);
-        // 初始化自定义的适配器
-        // 为mRecyclerView设置适配器
         list.setAdapter(new CardViewAdapter.CardViewAdapterBuilder().setContext(MainActivity.this).setTrees(trees).build());
 
     }
