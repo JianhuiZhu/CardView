@@ -1,6 +1,7 @@
 # CardView
         This is a card view EXAMPLE just for learning and fun^_^
 ![alt tag](https://github.com/JianhuiZhu/CardView-Example/blob/master/example.gif)
+
         All file included. Just compile and go.
         All code with related comments.
         Have fun
